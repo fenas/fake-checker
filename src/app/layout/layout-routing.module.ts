@@ -13,6 +13,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../landing/landing.module').then((m) => m.LandingModule),
       },
+      {
+        path: 'search-news',
+        loadChildren: () =>
+          import('../search-news/search-news.module').then(
+            (m) => m.SearchNewsModule
+          ),
+      },
     ],
   },
 ];
