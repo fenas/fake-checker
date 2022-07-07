@@ -1,0 +1,43 @@
+<div #sidebar class="mt-2">
+  <!-- <span
+    class="absolute text-black top-5 left-4 cursor-pointer"
+    (click)="Openbar()"
+  >
+    open
+  </span> -->
+  <div
+    class="bg-offWhite left-[-300px] sidebar shadow-md transition-all duration-1000 p-2 w-[100px] overflow-y-auto text-center"
+  >
+    <div class="text-gray-100 text-xl">
+      <div>
+        <div
+          *ngFor="let item of menuItems"
+          class="p-2.5 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
+        >
+          <fa-icon
+            [icon]="item.iconName"
+            size="2x"
+            [styles]="{ stroke: 'black', color: 'black' }"
+          ></fa-icon>
+          <!-- <span class="text-[15px] ml-4 text-gray-200">{{
+            item | titlecase
+          }}</span> -->
+        </div>
+
+        <hr class="my-4 text-gray-600" />
+
+        <div
+          class="p-2.5 mt-3 flex justify-center items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600"
+        >
+          <fa-icon
+            [icon]="['fas', 'coffee']"
+            size="2x"
+            [styles]="{ stroke: 'black', color: 'black' }"
+          ></fa-icon>
+        </div>
+
+        <span class="cursor-pointer text-white" (click)="Openbar()">X</span>
+      </div>
+    </div>
+  </div>
+</div>

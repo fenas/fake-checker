@@ -75,7 +75,7 @@
           <p>
             {{ item?.news_auther | titlecase }}
           </p>
-          <a class="text-blue-700 cursor-pointer">
+          <a class="text-blue-900 cursor-pointer">
             {{ item?.url }}
           </a>
         </div>
@@ -85,7 +85,7 @@
             {{ item?.why_fake | titlecase }}
           </p>
         </div>
-        <hr />
+        <!-- <hr /> -->
 
         <div class="flex justify-start items-start">
           <div class="border-r-2 p-3">
@@ -109,13 +109,11 @@
             <span class="text-xs text-gray-400">Poll results </span>
 
             <div class="article-author">
-              {{ item?.poll_results?.reported_fake_by }} users voted this is
-              fake
+              {{ item?.poll_results?.reported_fake_by }} voted fake
             </div>
 
             <div class="article-author">
-              {{ item?.poll_results?.reported_not_fake_by }} users voted this is
-              not fake
+              {{ item?.poll_results?.reported_not_fake_by }} voted not fake
             </div>
           </div>
 
@@ -123,12 +121,11 @@
             <span class="text-xs text-gray-400">Users feedback </span>
 
             <div class="article-author">
-              {{ item?.reported_fake_by }} fakechek users voted this is fake
+              {{ item?.reported_fake_by }} fakecheck users voted fake
             </div>
 
             <div class="article-author">
-              {{ item?.reported_not_fake_by }} fakechek users voted this is not
-              fake
+              {{ item?.reported_not_fake_by }} fakechek users voted not fake
             </div>
           </div>
 
