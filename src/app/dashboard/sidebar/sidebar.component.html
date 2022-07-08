@@ -12,13 +12,17 @@
       <div>
         <div
           *ngFor="let item of menuItems"
-          class="p-2.5 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
+          class="p-5 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
         >
-          <fa-icon
+
+
+<rmx-icon name="{{item.iconName}}" style="width: 40px;" class=" text-black mb-2" ></rmx-icon>
+
+          <!-- <fa-icon
             [icon]="item.iconName"
             size="2x"
             [styles]="{ stroke: 'black', color: 'black' }"
-          ></fa-icon>
+          ></fa-icon> -->
           <!-- <span class="text-[15px] ml-4 text-gray-200">{{
             item | titlecase
           }}</span> -->
@@ -41,3 +45,5 @@
     </div>
   </div>
 </div>
+
+

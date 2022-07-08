@@ -8,6 +8,8 @@ import {
   faBug,
 } from '@fortawesome/free-solid-svg-icons';
 
+
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -23,7 +25,7 @@ export class SidebarComponent implements OnInit {
   faBug = faBug;
 
   menuItems = [
-    { iconName: this.faHome },
+    { iconName: 'home-3-line' },
     { iconName: this.faHashtag },
     { iconName: this.faFile },
     { iconName: this.faBug },
