@@ -12,19 +12,48 @@ import {
   RiHome3Fill,
   RiHome3Line,
   RemixIconModule,
+  RiFlagLine,
+  RiFileList2Line,
+  RiLineChartLine,
 } from 'angular-remix-icon';
-
+import {
+  TippyModule,
+  tooltipVariation,
+  popperVariation,
+} from '@ngneat/helipopper';
+import { ButtonModule, ModalModule, TooltipModule } from 'zigzag';
+import { ReportFakeComponent } from './report-fake/report-fake.component';
 const icons = {
   RiAncientGateFill,
   RiHome3Fill,
-  RiHome3Line
+  RiHome3Line,
+  RiFlagLine,
+  RiFileList2Line,
+  RiLineChartLine,
 };
 @NgModule({
   declarations: [
     DashboardComponent,
     SidebarComponent,
     DashboardHeaderComponent,
+    ReportFakeComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, FontAwesomeModule,     RemixIconModule.configure(icons),],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    FontAwesomeModule,
+    TippyModule.forRoot({
+      defaultVariation: 'tooltip',
+      variations: {
+        tooltip: tooltipVariation,
+        popper: popperVariation,
+      },
+    }),
+
+    ButtonModule,
+    ModalModule,
+    TooltipModule,
+    RemixIconModule.configure(icons),
+  ],
 })
 export class DashboardModule {}

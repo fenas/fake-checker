@@ -1,14 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  faCoffee,
-  faHome,
-  faHashtag,
-  faFile,
-  faPowerOff,
-  faBug,
-} from '@fortawesome/free-solid-svg-icons';
 
-
+import { ModalRef, ModalService } from 'zigzag';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,21 +9,15 @@ import {
 })
 export class SidebarComponent implements OnInit {
   @ViewChild('sidebar') sidebar: ElementRef;
-  faCoffee = faCoffee;
-  faHome = faHome;
-  faHashtag = faHashtag;
-  faFile = faFile;
-  faPowerOf = faPowerOff;
-  faBug = faBug;
 
   menuItems = [
-    { iconName: 'home-3-line' },
-    { iconName: this.faHashtag },
-    { iconName: this.faFile },
-    { iconName: this.faBug },
+    { iconName: 'home-3-line', title: 'Home', route: 'home' },
+    { iconName: 'flag-line', title: 'Report a Fake News', route: 'report' },
+    { iconName: 'file-list-2-line', title: 'Reported by me', route: 'by-me' },
+    { iconName: 'line-chart-line', title: 'Stats', route: 'stats' },
   ];
 
-  constructor() {}
+  constructor(private modalsevice_: ModalService) {}
 
   Openbar() {
     const sidebarelement = this.sidebar.nativeElement;
@@ -39,4 +25,14 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  openModal() {
+    const ref = this.modalsevice_.open<any, any>(SidebarComponent, {
+      size: 'md',
+    });
+  }
+
+  // close() {
+  //   this.modalref_.close();
+  // }
 }

@@ -37,7 +37,7 @@ export class DemoDataService {
       type: 'social media post',
       date_of_news: '21/7/2010',
       date_reported: '07/07/2022',
-      fakeness_score: 80,
+      fakeness_score: 40,
       reported_fake_by: 20,
       reported_not_fake_by: 0,
       poll_results: {

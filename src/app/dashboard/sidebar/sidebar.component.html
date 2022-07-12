@@ -1,22 +1,22 @@
-<div #sidebar class="mt-2">
-  <!-- <span
-    class="absolute text-black top-5 left-4 cursor-pointer"
-    (click)="Openbar()"
-  >
-    open
-  </span> -->
+<div #sidebar>
   <div
-    class="bg-offWhite left-[-300px] sidebar shadow-md transition-all duration-1000 p-2 w-[100px] overflow-y-auto text-center"
+    class="bg-offWhite left-[-300px] sidebar transition-all duration-1000 p-2 w-[100px] overflow-y-auto text-center"
   >
     <div class="text-gray-100 text-xl">
       <div>
         <div
+          tippy="{{ item.title }}"
+          placement="right"
+          [routerLink]="item.route"
+          routerLinkActive="bg-gray-300"
           *ngFor="let item of menuItems"
           class="p-5 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
         >
-
-
-<rmx-icon name="{{item.iconName}}" style="width: 40px;" class=" text-black mb-2" ></rmx-icon>
+          <rmx-icon
+            name="{{ item.iconName }}"
+            style="width: 40px"
+            class="text-black mb-2"
+          ></rmx-icon>
 
           <!-- <fa-icon
             [icon]="item.iconName"
@@ -28,7 +28,7 @@
           }}</span> -->
         </div>
 
-        <hr class="my-4 text-gray-600" />
+        <!-- <hr class="my-4 text-gray-600" />
 
         <div
           class="p-2.5 mt-3 flex justify-center items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600"
@@ -38,12 +38,23 @@
             size="2x"
             [styles]="{ stroke: 'black', color: 'black' }"
           ></fa-icon>
-        </div>
+        </div> -->
 
-        <span class="cursor-pointer text-white" (click)="Openbar()">X</span>
+        <!-- <span class="cursor-pointer text-white" (click)="Openbar()">X</span> -->
       </div>
     </div>
+
+    <!-- <button zzTooltip="hello" placement="right" zzButton variant="primary">
+      buton
+    </button> -->
+
+    <!-- <button (click)="openModal()" zzButton variant="primary">Modal</button> -->
   </div>
 </div>
 
-
+<!-- <span
+  class="absolute text-black top-5 left-4 cursor-pointer"
+  (click)="Openbar()"
+>
+  open
+</span> -->

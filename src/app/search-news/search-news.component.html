@@ -58,85 +58,135 @@
     </div> -->
     <div
       *ngFor="let item of demoDataServ_.demoNews"
-      class="col-span-1 border border-black rounded p-5"
+      class="grid md:grid-cols-4 grid-cols-1 cursor-pointer border border-slate-200 rounded-lg p-5 shadow-sm hover:shadow-lg"
     >
-      <article class="article divide-black-100">
+      <article
+        class="col-span-4 md:col-span-3 article divide-black-100 border-r-2 flex flex-col"
+      >
+        <h2 class="article-title article-title--medium">
+          <a class="article-link">{{ item.heading | titlecase }}</a>
+        </h2>
+        <!-- <div class="bg-contain bg-center bg-no-repeat">
+            <img
+              src="../../assets/images/kisspng-fake-news-la-grande-peur-new-york-stock-photograp-5b0a0c5e7a6305.5843733515273851825013.png"
+              width="100px"
+            />
+          </div> -->
+
         <!-- <figure class="article-img">
           <img
             src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
           />
         </figure> -->
-        <h2 class="article-title article-title--medium">
-          <a class="article-link">{{ item.heading | titlecase }}</a>
-        </h2>
 
-        <div>
-          <span class="text-xs text-gray-400">News Published by - </span>
-          <p>
-            {{ item?.news_auther | titlecase }}
-          </p>
-          <a class="text-blue-900 cursor-pointer">
-            {{ item?.url }}
-          </a>
+        <div class="flex flex-col justify-start items-start">
+          <div>
+            <span class="text-xs text-gray-400">News Published by - </span>
+            <a class="">
+              {{ item?.news_auther | titlecase }}
+            </a>
+          </div>
+          <div>
+            <span class="text-xs text-gray-400">URL - </span>
+            <a class="text-blue-900 cursor-pointer"> {{ item?.url }} </a>
+          </div>
         </div>
+
         <div class="article-excerpt">
-          <span class="text-xs text-gray-400">why is this fake? -</span>
+          <span class="text-xs text-gray-400">Why is this fake? -</span>
           <p>
             {{ item?.why_fake | titlecase }}
           </p>
         </div>
+
+        <div class="flex mt-2">
+          <span class="text-xs text-gray-400 mr-2"
+            >Reported on Fakecheck by -
+          </span>
+          <h1 class="text-xs text-gray-400">
+            @{{ item.reported_by | titlecase }}
+          </h1>
+
+          <!-- <div class="article-author">
+           <div class="article-author-img">
+              <img src="https://assets.codepen.io/285131/author-2.png" />
+            </div>=
+
+          </div> -->
+        </div>
+
+        <div class="flex justify-start items-start mt-3">
+          <span class="flex mr-3" tippy="Comments">
+            <rmx-icon name="chat-1-line" class="text-black mr-1"></rmx-icon>
+            0
+          </span>
+
+          <span class="flex" tippy="Poll Interactions">
+            <rmx-icon name="chat-poll-line" class="text-black mr-1"></rmx-icon>
+            0
+          </span>
+        </div>
         <!-- <hr /> -->
+      </article>
 
-        <div class="flex justify-start items-start">
-          <div class="border-r-2 p-3">
-            <span class="text-xs text-gray-400">Reported on Fakecheck by </span>
+      <div class="flex justify-start flex-col items-start">
+        <div class="p-3">
+          <span class="text-sm text-gray-400">Poll results </span>
 
-            <div class="article-author">
-              <div class="article-author-img">
-                <img src="https://assets.codepen.io/285131/author-2.png" />
-              </div>
-              <div class="article-author-info">
-                <dl>
-                  <dt>
-                    {{ item.reported_by | titlecase }}
-                  </dt>
-                </dl>
-              </div>
-            </div>
+          <div class="article-author">
+            <rmx-icon name="bug-line" class="mr-1"></rmx-icon>
+
+            {{ item?.poll_results?.reported_fake_by }} voted fake
           </div>
 
-          <div class="border-r-2 p-3">
-            <span class="text-xs text-gray-400">Poll results </span>
+          <div class="article-author">
+            <rmx-icon name="seedling-line" class="mr-1"></rmx-icon>
 
-            <div class="article-author">
-              {{ item?.poll_results?.reported_fake_by }} voted fake
-            </div>
-
-            <div class="article-author">
-              {{ item?.poll_results?.reported_not_fake_by }} voted not fake
-            </div>
-          </div>
-
-          <div class="border-r-2 p-3">
-            <span class="text-xs text-gray-400">Users feedback </span>
-
-            <div class="article-author">
-              {{ item?.reported_fake_by }} fakecheck users voted fake
-            </div>
-
-            <div class="article-author">
-              {{ item?.reported_not_fake_by }} fakechek users voted not fake
-            </div>
-          </div>
-
-          <div class="p-3">
-            Fakeness score
-            <span> {{ item.fakeness_score | number }}</span>
+            {{ item?.poll_results?.reported_not_fake_by }} voted not fake
           </div>
         </div>
 
-        <hr />
-      </article>
+        <!-- <div class="border-r-2 p-3">
+          <span class="text-sm text-gray-400">Users feedback </span>
+
+          <div class="article-author">
+            {{ item?.reported_fake_by }} fakecheck users voted fake
+          </div>
+
+          <div class="article-author">
+            {{ item?.reported_not_fake_by }} fakechek users voted not fake
+          </div>
+        </div> -->
+
+        <div
+          class="p-3"
+          tippy="Fakeness Score is calculated by our system from all the information gathered from this post!, Including, reporters observations, poll results etc"
+        >
+          <span class="text-sm"> Fakeness score </span>
+
+          <div class="article-author">
+            <rmx-icon name="skull-2-line" class="mr-1"></rmx-icon>
+            {{ item.fakeness_score | number }}%
+          </div>
+        </div>
+
+        <div class="p-3">
+          <div
+            class="article-author text-red-800"
+            *ngIf="item.fakeness_score > 50"
+          >
+            This News is highly likely to be Fake as the fakeness score is above
+            50
+          </div>
+
+          <div
+            class="article-author text-green-800"
+            *ngIf="item.fakeness_score < 50"
+          >
+            Lets not Wrap up things here as the fakeness score is less than 50
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

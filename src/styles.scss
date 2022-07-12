@@ -5,6 +5,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~tippy.js/dist/tippy.css";
+@import "~tippy.js/themes/light.css";
+@import "~tippy.js/animations/scale.css";
+
+:root {
+  --primary: hsl(207, 82%, 42%);
+  --primary-transparent-10: hsla(207, 82%, 42%, 10%);
+}
 
 *,
 *:after,
@@ -13,13 +21,14 @@
 }
 
 body {
-  // font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
   // font-family: "Fraunces", serif;
 
-  font-family: "Lora", serif;
+  // font-family: "Lora", serif;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: #f8f3eb;
+  // background-color: #f8f3eb;
+  background-color: rgb(255, 255, 255);
 
   // color: #484847;
 }
