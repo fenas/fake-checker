@@ -1,6 +1,6 @@
-<div #sidebar>
+<div #sidebar class="rounded">
   <div
-    class="bg-offWhite left-[-300px] sidebar transition-all duration-1000 p-2 w-[100px] overflow-y-auto text-center"
+    class="bg-offWhite left-[-200px] sidebar transition-all duration-1000 p-2 w-[100px] overflow-y-auto text-center"
   >
     <div class="text-gray-100 text-xl">
       <div>
@@ -10,11 +10,11 @@
           [routerLink]="item.route"
           routerLinkActive="bg-gray-300"
           *ngFor="let item of menuItems"
-          class="p-5 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
+          class="p-3 mt-2 flex justify-center items-center text-center rounded px-4 duration-300 cursor-pointer hover:bg-gray-300"
         >
           <rmx-icon
             name="{{ item.iconName }}"
-            style="width: 40px"
+            style="width: 30px"
             class="text-black mb-2"
           ></rmx-icon>
 

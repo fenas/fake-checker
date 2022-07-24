@@ -1,4 +1,4 @@
-<main class="responsive-wrapper mb-10">
+<main class="responsive-wrapper mb-10 p-10 bg-gray-100">
   <div class="page-title">
     <div class="flex justify-center">
       <div class="mb-3 xl:w-96">
@@ -58,8 +58,14 @@
     </div> -->
     <div
       *ngFor="let item of demoDataServ_.demoNews"
-      class="grid md:grid-cols-4 grid-cols-1 cursor-pointer border border-slate-200 rounded-lg p-5 shadow-sm hover:shadow-lg"
+      class="bg-white grid md:grid-cols-4 grid-cols-1 cursor-pointer border border-slate-200 rounded-lg p-5 shadow-sm hover:shadow-lg"
     >
+      <!-- <img
+        *ngIf="item.image"
+        class="object-cover rounded p-1"
+        [src]="item?.image"
+        alt=""
+      /> -->
       <article
         class="col-span-4 md:col-span-3 article divide-black-100 border-r-2 flex flex-col"
       >
@@ -94,7 +100,7 @@
 
         <div class="article-excerpt">
           <span class="text-xs text-gray-400">Why is this fake? -</span>
-          <p>
+          <p class="truncate">
             {{ item?.why_fake | titlecase }}
           </p>
         </div>

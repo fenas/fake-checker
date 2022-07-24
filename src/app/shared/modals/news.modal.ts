@@ -14,4 +14,5 @@ export interface news {
     reported_fake_by: number;
     reported_not_fake_by: number;
   };
+  image?: string;
 }

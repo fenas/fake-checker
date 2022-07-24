@@ -44,6 +44,7 @@ export class DemoDataService {
         reported_fake_by: 20,
         reported_not_fake_by: 0,
       },
+      image: '../../../assets/images/abc8de901b9cd1ff86618dc85373a48f.jpg',
     },
     {
       heading: 'Micheal jackson is not Dead!',

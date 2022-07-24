@@ -14,7 +14,11 @@ export class SidebarComponent implements OnInit {
     { iconName: 'home-3-line', title: 'Home', route: 'home' },
     { iconName: 'flag-line', title: 'Report a Fake News', route: 'report' },
     { iconName: 'file-list-2-line', title: 'Reported by me', route: 'by-me' },
-    { iconName: 'line-chart-line', title: 'Stats', route: 'stats' },
+    {
+      iconName: 'line-chart-line',
+      title: 'Stats (coming soon...)',
+      route: 'stats',
+    },
   ];
 
   constructor(private modalsevice_: ModalService) {}

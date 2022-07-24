@@ -20,6 +20,11 @@ const routes: Routes = [
             (m) => m.SearchNewsModule
           ),
       },
+      {
+        path: 'poll',
+        loadChildren: () =>
+          import('../poll/poll.module').then((m) => m.PollModule),
+      },
     ],
   },
 ];
