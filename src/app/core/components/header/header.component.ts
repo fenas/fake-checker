@@ -11,6 +11,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   onSocialLogin() {
-    location.href = `https://2abe-115-96-181-69.ngrok.io/api/auth/google/`;
+    location.href = `https://fake-checker-api.adi.so/api/auth/google/`;
   }
 }
