@@ -1,15 +1,30 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private cookieService: CookieService) {}
+  constructor(
+    private router: Router,
+    private cookieService: CookieService,
+    private http: HttpClient
+  ) {}
+
+  loginDetails = new Subject();
 
   async logout() {
     this.cookieService.deleteAll('/');
     await this.router.navigate(['/']);
+    this.loginDetails.next(null);
+  }
+
+  me() {
+    let url = 'https://fake-checker-api.adi.so/api/user/me';
+
+    return this.http.get(url, { withCredentials: true });
   }
 }

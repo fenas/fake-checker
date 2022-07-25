@@ -19,8 +19,8 @@ export class SocialLoginHandlerComponent implements OnInit {
   async ngOnInit() {
     const query = this.route.snapshot.queryParams;
     if (query && query?.['code'] === 'SUCCESS') {
-      // await firstValueFrom(this.authService.me(true));
-      await this.router.navigateByUrl('/');
+      localStorage.setItem('token', query['token']);
+      await this.router.navigateByUrl('/dashboard/home');
     } else {
       await this.router.navigateByUrl('/');
     }

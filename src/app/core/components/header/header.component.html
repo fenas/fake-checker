@@ -18,7 +18,19 @@
         class="header-link header-link--button rounded"
         >Search Fakes News</a
       >
-      <a (click)="onSocialLogin()" class="header-link">Login/Signup</a>
+      <a
+        *ngIf="!(auth.loginDetails | async)"
+        (click)="onSocialLogin()"
+        class="header-link cursor-pointer"
+        >Login/Signup</a
+      >
+
+      <a
+        *ngIf="auth.loginDetails | async"
+        (click)="auth.logout()"
+        class="header-link cursor-pointer"
+        >Sign out</a
+      >
     </nav>
     <!-- <button class="header-menu-button">Menu</button> -->
   </div>
