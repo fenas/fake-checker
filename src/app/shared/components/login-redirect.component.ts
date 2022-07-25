@@ -22,7 +22,7 @@ export class SocialLoginHandlerComponent implements OnInit {
       // await firstValueFrom(this.authService.me(true));
       await this.router.navigateByUrl('/');
     } else {
-      await this.router.navigateByUrl('/login');
+      await this.router.navigateByUrl('/');
     }
   }
 }

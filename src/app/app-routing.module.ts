@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SocialLoginHandlerComponent } from './shared/components/login-redirect.component';
 
 const routes: Routes = [
+  {
+    path: 'auth/callback',
+    component: SocialLoginHandlerComponent,
+  },
   {
     path: '',
     loadChildren: () =>
