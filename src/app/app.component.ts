@@ -15,6 +15,7 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.auth.me().subscribe((el) => {
+      console.log(el);
       this.auth.loginDetails.next(el);
     });
   }

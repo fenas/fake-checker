@@ -9,9 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class HeaderComponent implements OnInit {
   constructor(public auth: AuthService) {}
 
-  ngOnInit(): void {
-    this.auth.me().subscribe((el) => console.log(el));
-  }
+  ngOnInit(): void {}
 
   onSocialLogin() {
     location.href = `https://fake-checker-api.adi.so/api/auth/google/`;
