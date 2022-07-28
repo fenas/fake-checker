@@ -21,7 +21,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'poll',
+        path: 'poll/:poll_id',
         loadChildren: () =>
           import('../poll/poll.module').then((m) => m.PollModule),
       },

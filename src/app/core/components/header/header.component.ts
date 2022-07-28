@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   onSocialLogin() {
-    location.href = `https://fake-checker-api.adi.so/api/auth/google/`;
+    location.href = `${environment.apiUrl}/auth/google/`;
   }
 }

@@ -20,6 +20,7 @@ export class SocialLoginHandlerComponent implements OnInit {
     const query = this.route.snapshot.queryParams;
     if (query && query?.['code'] === 'SUCCESS') {
       localStorage.setItem('token', query['token']);
+
       await this.router.navigateByUrl('/dashboard/home');
     } else {
       await this.router.navigateByUrl('/');

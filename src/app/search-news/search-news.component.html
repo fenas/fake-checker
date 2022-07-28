@@ -13,51 +13,8 @@
     </div>
   </div>
   <div class="grid grid-cols-1 gap-4 mt-12">
-    <!-- <div class="newspaper-column">
-      <article class="article">
-        <h2 class="article-title article-title--large">
-          <a href="#" class="article-link"
-            >The First Signs of
-            <mark class="mark mark--primary">Alcoholic Liver</mark> Damage Are
-            Not in the Liver</a
-          >
-        </h2>
-        <div class="article-excerpt">
-          <p>
-            The combination of my father's death and my personal back ground lit
-            a fire in me to know more
-          </p>
-          <p>He was admitted to the hospital on June 24, 2016.</p>
-        </div>
-
-        <div class="article-author">
-          <div class="article-author-img">
-            <img src="https://assets.codepen.io/285131/author-3.png" />
-          </div>
-          <div class="article-author-info">
-            <dl>
-              <dt>David Sherof</dt>
-              <dd>Reporter</dd>
-            </dl>
-          </div>
-        </div>
-      </article>
-      <article class="article">
-        <h2 class="article-title article-title--medium">
-          <a href="#" class="article-link"
-            >The Founder's Guide to Actually Understanding Users Nowadays</a
-          >
-        </h2>
-        <div class="article-creditation">
-          <p>
-            By Johnathan O'Connell, Andrew Van Dam, Aaron Gregg and Alyssa
-            Fowers
-          </p>
-        </div>
-      </article>
-    </div> -->
     <div
-      *ngFor="let item of demoDataServ_.demoNews"
+      *ngFor="let item of news$ | async"
       class="bg-white grid md:grid-cols-4 grid-cols-1 cursor-pointer border border-slate-200 rounded-lg p-5 shadow-sm hover:shadow-lg"
     >
       <!-- <img
@@ -89,7 +46,7 @@
           <div>
             <span class="text-xs text-gray-400">News Published by - </span>
             <a class="">
-              {{ item?.news_auther | titlecase }}
+              {{ item?.news_author | titlecase }}
             </a>
           </div>
           <div>
@@ -106,12 +63,20 @@
         </div>
 
         <div class="flex mt-2">
-          <span class="text-xs text-gray-400 mr-2"
-            >Reported on Fakecheck by -
-          </span>
-          <h1 class="text-xs text-gray-400">
-            @{{ item.reported_by | titlecase }}
-          </h1>
+          <div class="flex justify-center items-center gap-2">
+            <span class="text-xs text-gray-400 mr-2"
+              >Reported on Fakecheck by
+            </span>
+            <img
+              class="h-[30px] w-[30px] rounded-full"
+              src="{{ item.reported_by?.image }}"
+              alt=""
+            />
+
+            <h1 class="text-xs text-gray-400">
+              {{ item.reported_by?.firstName | titlecase }}
+            </h1>
+          </div>
 
           <!-- <div class="article-author">
            <div class="article-author-img">
@@ -142,13 +107,13 @@
           <div class="article-author">
             <rmx-icon name="bug-line" class="mr-1"></rmx-icon>
 
-            {{ item?.poll_results?.reported_fake_by }} voted fake
+            {{ item?.poll_results?.[0]?.reported_fake_by }} voted fake
           </div>
 
           <div class="article-author">
             <rmx-icon name="seedling-line" class="mr-1"></rmx-icon>
 
-            {{ item?.poll_results?.reported_not_fake_by }} voted not fake
+            {{ item?.poll_results?.[0]?.reported_not_fake_by }} voted not fake
           </div>
         </div>
 

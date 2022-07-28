@@ -1,28 +1,30 @@
-<div class="h-[700px] mt-10 p-10">
+<div class="h-[700px] mt-10 p-10 shadow-lg">
   <div class="flex justify-center flex-col items-center">
-    <h1 class="text-4xl font-bold p-5">
-      “Sad News/RIP Clint Eastwood/Goodbye Clint Eastwood”!
+    <h1 class="text-4xl font-bold p-3">
+      {{ (polldetails$ | async)?.news?.heading | titlecase }}
     </h1>
 
-    <p class="text-center text-xl">
-      It just shocked many of his fans. One of them without verifying said,
-      “This is incredible. Shocking. He was iconic.” However, a film critic
-      rebuffed the news saying: “I don’t think so. It’s a hoax.” Eastwood
-      revolutionised the whole spirit of Westerns, transiting from violence to
-      peace-driven messages.
-    </p>
-
-    <p class="mt-3">
-      this is a news reported here :
-      <a class="text-blue-600"
-        >https://nenow.in/entertainment/fake-news-hollywood-actor-director-clint-eastwood-death-viral-social-media.html</a
-      >
-    </p>
-
-    <div class="text-yellow-500 mt-10">
+    <div class="text-yellow-500 my-3">
       One of our fake checkers thinks that this news is fake! and we want your
       honest openion to help us find the genuinity of this content!
     </div>
+
+    <h3 class="text-lg font-bold">
+      Why does the reported thinks this is fake?
+    </h3>
+
+    <p class="text-xl text-center">
+      {{ (polldetails$ | async)?.news?.why_fake | titlecase }}
+    </p>
+
+    <p class="mt-3">
+      This is a news reported by :
+      <a class="text-blue-600">
+        {{ (polldetails$ | async)?.news?.news_author | titlecase }}
+      </a>
+    </p>
+
+    <p>Please cast your vote!</p>
 
     <div class="mt-9 flex justify-center gap-4 items-center">
       <div
