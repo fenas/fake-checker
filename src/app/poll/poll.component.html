@@ -24,23 +24,37 @@
       </a>
     </p>
 
+    <div class="p-3 flex justify-center items-center flex-col">
+      <span class="text-lg text-gray-400">Poll results </span>
+
+      <span class="flex gap-1 justify-center items-center">
+        {{ (polldetails$ | async)?.reported_fake_by }} voted fake
+        <rmx-icon name="bug-line" class="ml-1"></rmx-icon>
+      </span>
+
+      <span class="flex gap-1 justify-center items-center">
+        {{ (polldetails$ | async)?.reported_not_fake_by }} voted not fake
+        <rmx-icon name="seedling-line" class="ml-1"></rmx-icon>
+      </span>
+    </div>
+
     <p>Please cast your vote!</p>
 
-    <div class="mt-9 flex justify-center gap-4 items-center">
-      <div
+    <div class="mt-6 flex justify-center gap-4 items-center">
+      <button
+        (click)="vote('UP')"
         class="flex justify-center items-center cursor-pointer p-3 text-4xl shadow hover:shadow-md text-red-500"
       >
         <rmx-icon name="thumb-up-fill" class="text-red-500 mr-1"></rmx-icon>
-
         Fake!
-      </div>
-      <div
+      </button>
+      <button
+        (click)="vote('DOWN')"
         class="flex justify-center items-center cursor-pointer p-3 text-4xl shadow hover:shadow-md text-green-500"
       >
         <rmx-icon name="thumb-down-fill" class="text-green-500 mr-1"></rmx-icon>
-
         Real!
-      </div>
+      </button>
     </div>
   </div>
 </div>

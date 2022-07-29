@@ -7,11 +7,21 @@ import {
   RemixIconModule,
   RiThumbUpFill,
   RiThumbDownFill,
+  RiBugLine,
+  RiSeedlingLine,
+  RiChat1Line,
+  RiSkull2Line,
+  RiChatPollLine,
 } from 'angular-remix-icon';
 
 const icons = {
   RiThumbUpFill,
   RiThumbDownFill,
+  RiBugLine,
+  RiSeedlingLine,
+  RiChat1Line,
+  RiSkull2Line,
+  RiChatPollLine,
 };
 
 @NgModule({

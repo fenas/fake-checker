@@ -1,20 +1,20 @@
 export interface BaseNews {
-  id: string;
+  id?: string;
   heading: string;
   url: string;
-  image: null;
+  image: string | null;
   news_author: string;
   why_fake: string;
   type: string;
   date_of_news: Date;
   date_reported: Date;
   fakeness_score: number;
-  reported_fake_by: number;
-  reported_not_fake_by: number;
-  other_outlet_running: null;
-  author_has_contact: null;
-  read_whole_new: null;
-  userId: string;
+  reported_fake_by?: number;
+  reported_not_fake_by?: number;
+  other_outlet_running: null | boolean;
+  author_has_contact: null | boolean;
+  read_whole_new: null | boolean;
+  userId?: string;
 }
 
 export interface News extends BaseNews {

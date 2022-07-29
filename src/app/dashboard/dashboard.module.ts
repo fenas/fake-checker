@@ -23,6 +23,7 @@ import {
 } from '@ngneat/helipopper';
 import { ButtonModule, ModalModule, TooltipModule } from 'zigzag';
 import { ReportFakeComponent } from './report-fake/report-fake.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const icons = {
   RiAncientGateFill,
   RiHome3Fill,
@@ -54,6 +55,8 @@ const icons = {
     ModalModule,
     TooltipModule,
     RemixIconModule.configure(icons),
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class DashboardModule {}

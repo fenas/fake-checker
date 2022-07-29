@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { news } from '../modals/news.modal';
+// import { news } from '../modals/news.modal';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +7,7 @@ import { news } from '../modals/news.modal';
 export class DemoDataService {
   constructor() {}
 
-  demoNews: news[] = [
+  demoNews: any[] = [
     {
       heading: 'Micheal jackson is not Dead!',
       url: 'www.somenewschannel.news/mj-not-dead',

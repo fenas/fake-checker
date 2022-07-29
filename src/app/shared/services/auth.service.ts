@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +24,9 @@ export class AuthService {
   }
 
   me() {
-    let url = 'https://fake-checker-api.adi.so/api/user/me';
-
-    return this.http.get(url, { withCredentials: true });
+    // let url = 'https://fake-checker-api.adi.so/api/user/me';
+    return this.http.get(`${environment.apiUrl}/user/me`, {
+      withCredentials: true,
+    });
   }
 }

@@ -25,6 +25,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../poll/poll.module').then((m) => m.PollModule),
       },
+
+      {
+        path: 'news-details/:news-id',
+        loadChildren: () =>
+          import('../news-details/news-details.module').then(
+            (m) => m.NewsDetailsModule
+          ),
+      },
     ],
   },
 ];
