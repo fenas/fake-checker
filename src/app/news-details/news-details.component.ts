@@ -39,7 +39,9 @@ export class NewsDetailsComponent implements OnInit {
   }
 
   copy(pollid: string) {
-    let url = 'localhost:4200';
+    // let url = 'localhost:4200';
+    let url = 'https://fake-checker.vercel.app';
+
     let value = `${url}/poll/${pollid}`;
     navigator.clipboard.writeText(value);
   }

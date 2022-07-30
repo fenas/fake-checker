@@ -23,7 +23,7 @@ export class ReportFakeComponent implements OnInit {
 
     other_outlet_running: ['', Validators.required],
     author_has_contact: ['', Validators.required],
-    read_whole_new: ['', Validators.required],
+    read_whole_news: ['', Validators.required],
   });
 
   ngOnInit(): void {}
@@ -50,8 +50,8 @@ export class ReportFakeComponent implements OnInit {
         author_has_contact: this.convertToBoolean(
           this.reportForm.value.author_has_contact!
         )!,
-        read_whole_new: this.convertToBoolean(
-          this.reportForm.value.read_whole_new!
+        read_whole_news: this.convertToBoolean(
+          this.reportForm.value.read_whole_news!
         )!,
       };
 
@@ -74,7 +74,7 @@ export class ReportFakeComponent implements OnInit {
   calculateFaknessScore() {
     let other_outlets_running = this.reportForm.value.other_outlet_running;
     let auther_have_contact = this.reportForm.value.author_has_contact;
-    let whole_story = this.reportForm.value.read_whole_new;
+    let whole_story = this.reportForm.value.read_whole_news;
 
     let score = 0;
     if (other_outlets_running == 'false') {

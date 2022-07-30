@@ -13,7 +13,7 @@ export interface BaseNews {
   reported_not_fake_by?: number;
   other_outlet_running: null | boolean;
   author_has_contact: null | boolean;
-  read_whole_new: null | boolean;
+  read_whole_news: null | boolean;
   userId?: string;
 }
 
