@@ -16,6 +16,7 @@ const routes: Routes = [
             (m) => m.SearchNewsModule
           ),
       },
+      
       {
         path: 'report',
         component: ReportFakeComponent,

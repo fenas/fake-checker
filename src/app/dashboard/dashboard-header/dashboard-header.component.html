@@ -8,18 +8,21 @@
   </div>
   <div class="header-right">
     <nav class="header-nav">
-      <a
+      <!-- <a
         [routerLink]="['/search-news']"
         class="header-link header-link--button rounded"
         >Search Fakes News</a
-      >
-      <a class="header-link">Profile</a>
-      <a *ngIf="!(auth.loginDetails | async)" class="header-link cursor-pointer"
-        >{{ auth.loginDetails | async }}.</a
-      >
+      > -->
 
-      <a *ngIf="auth.loginDetails | async" class="header-link cursor-pointer"
-        >Sign out</a
+      <a *ngIf="loginDetails?.firstName" class="header-link">{{
+        loginDetails.firstName
+      }}</a>
+
+      <a
+        (click)="auth.logout()"
+        *ngIf="loginDetails?.firstName"
+        class="header-link header-link--button rounded cursor-pointer"
+        >Sign Out</a
       >
     </nav>
   </div>

@@ -15,7 +15,7 @@ export class AuthService {
     private http: HttpClient
   ) {}
 
-  loginDetails = new Subject();
+  loginDetails = new Subject<any>();
 
   async logout() {
     this.cookieService.deleteAll('/');

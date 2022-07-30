@@ -17,7 +17,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
-  { path: 'news-details', loadChildren: () => import('./news-details/news-details.module').then(m => m.NewsDetailsModule) },
 ];
 
 @NgModule({

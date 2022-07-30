@@ -9,5 +9,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class DashboardHeaderComponent implements OnInit {
   constructor(public auth: AuthService) {}
 
-  ngOnInit(): void {}
+  loginDetails: any;
+
+  ngOnInit(): void {
+    this.auth.me().subscribe((el) => {
+      console.log(el);
+
+      this.loginDetails = el;
+    });
+  }
 }
