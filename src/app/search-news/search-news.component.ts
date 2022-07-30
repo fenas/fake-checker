@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { combineLatest, map, Observable, startWith, tap } from 'rxjs';
 import { News } from '../shared/models/news.interface';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -14,15 +15,32 @@ import { DemoDataService } from '../shared/services/demo-data.service';
 })
 export class SearchNewsComponent implements OnInit {
   readonly news$: Observable<News[]>;
+  newsOriginal: News[];
 
+  search = new FormControl('');
   constructor(
     public demoDataServ_: DemoDataService,
     private common_: CommonService,
     private auth: AuthService,
     private router: Router
   ) {
-    this.news$ = this.common_.searchNews();
+    this.news$ = combineLatest([
+      this.common_.searchNews(),
+      this.search.valueChanges.pipe(startWith('')),
+    ]).pipe(
+      tap(([news]) => (this.newsOriginal = news)),
+      map(([news, searchValue]) => {
+        return news.filter((el) =>
+          el.heading.toLowerCase().includes(searchValue!.toLowerCase())
+        );
+      })
+    );
+
     this.news$.subscribe(console.log);
+
+    // this.search.valueChanges(el=> {
+
+    // })
   }
 
   id = '';

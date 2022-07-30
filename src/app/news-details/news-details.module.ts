@@ -16,6 +16,7 @@ import {
   tooltipVariation,
   popperVariation,
 } from '@ngneat/helipopper';
+import { FakenessScorePipeModule } from '../shared/pipe/fakeness-score.pipe';
 const icons = {
   RiBugLine,
   RiSeedlingLine,
@@ -37,6 +38,7 @@ const icons = {
         popper: popperVariation,
       },
     }),
+    FakenessScorePipeModule,
   ],
 })
 export class NewsDetailsModule {}

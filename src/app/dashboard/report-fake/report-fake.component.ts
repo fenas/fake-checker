@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BaseNews } from 'src/app/shared/models/news.interface';
 import { CommonService } from 'src/app/shared/services/common.service';
 @Component({
@@ -8,7 +9,11 @@ import { CommonService } from 'src/app/shared/services/common.service';
   styleUrls: ['./report-fake.component.scss'],
 })
 export class ReportFakeComponent implements OnInit {
-  constructor(private fb: FormBuilder, private commonSERv_: CommonService) {}
+  constructor(
+    private fb: FormBuilder,
+    private commonSERv_: CommonService,
+    private router: Router
+  ) {}
 
   reportForm = this.fb.group({
     heading: ['', Validators.required],
@@ -59,6 +64,8 @@ export class ReportFakeComponent implements OnInit {
 
       this.commonSERv_.postNews(news).subscribe((el) => {
         console.log(el);
+
+        this.router.navigateByUrl('/dashboard/home');
       });
     }
   }

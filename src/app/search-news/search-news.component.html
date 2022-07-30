@@ -3,6 +3,7 @@
     <div class="flex justify-center">
       <div class="mb-3 xl:w-96">
         <input
+          [formControl]="search"
           type="text"
           class="bg-offWhite border-gray-600 block w-full px-3 py-1.5 text-base font-normal text-gray-700 border-b-2 border-grey transition ease-in-out m-0 focus:text-gray-700 focus:border-blackish-600 focus:outline-none"
           id="exampleFormControlInput5"
@@ -140,7 +141,7 @@
 
           <div class="article-author">
             <rmx-icon name="skull-2-line" class="mr-1"></rmx-icon>
-            {{ item.fakeness_score | number }}%
+            {{ item | FakenessScore }}
           </div>
         </div>
 

@@ -19,6 +19,7 @@ export class AuthService {
 
   async logout() {
     this.cookieService.deleteAll('/');
+    localStorage.clear();
     await this.router.navigate(['/']);
     this.loginDetails.next(null);
   }
