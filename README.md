@@ -1,6 +1,6 @@
 <h1 align="ceThe all in one bookmark app for you developers out there.nter">FakeCheck</h1>
 <p align="center">
-  <img src="../fake-checker/src/assets/images/abc8de901b9cd1ff86618dc85373a48f.jpg" alt="angular">
+  <img src="src/assets/images/abc8de901b9cd1ff86618dc85373a48f.jpg" alt="angular">
 
 </p>
 
